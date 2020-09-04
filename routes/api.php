@@ -18,4 +18,8 @@ Route::prefix('v1')->group(function() {
     Route::post('login', [
         'uses' => 'API\AuthController@login'
     ]);
+
+    Route::middleware('auth:api')->group(function () {
+        Route::post('draw', 'API\UserController@store');
+    });
 });
