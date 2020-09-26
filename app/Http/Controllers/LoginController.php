@@ -12,7 +12,7 @@ class LoginController extends Controller
     {
         $credentials = $request->only('username', 'password');
         // print_r($credentials);
-
+        
         if (Auth::attempt($credentials)) {
             // Authentication passed...
             return redirect()->intended('/dashboard');

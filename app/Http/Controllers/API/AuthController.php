@@ -28,7 +28,7 @@ class AuthController extends Controller
         $config = [];
 
         if ($is_synch) {
-            $config = Config::all();
+            $config = Config::select('configs.*')->get();
         }
 
         $accessToken = Auth::user()->createToken('authToken')->accessToken;
