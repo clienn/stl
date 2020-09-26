@@ -31,6 +31,8 @@ class AuthController extends Controller
             $config = Config::select('configs.*')->get();
         }
 
+        $config = $config ? $config[0] : '';
+
         $accessToken = Auth::user()->createToken('authToken')->accessToken;
         $userId = Auth::id();
 
