@@ -25,7 +25,7 @@ class AuthController extends Controller
         }
 
         $is_synch = $request->input('is_synch');
-        $config = [];
+        $config = '';
 
         if ($is_synch) {
             $config = Config::select('configs.*')->get();
