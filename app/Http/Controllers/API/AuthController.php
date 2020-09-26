@@ -20,7 +20,15 @@ class AuthController extends Controller
         ]);
         
         if (!auth()->attempt($login_data)) {
-            return response(['message' => 'Invalid credentials', 'status' => false]);
+            $is_synch = $request->input('is_synch');
+            $config = [];
+
+            if ($is_synch) {
+                $config = Config::all();
+            }
+            
+        
+            return response(['message' => 'Invalid credentials', 'config' => $config, 'status' => false]);
         }
 
         $accessToken = Auth::user()->createToken('authToken')->accessToken;

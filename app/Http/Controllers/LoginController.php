@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Config;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -17,6 +18,7 @@ class LoginController extends Controller
             // Authentication passed...
             return redirect()->intended('/dashboard');
         }
+
         
         // $hashpassword = Hash::make('admin123');
         // echo $hashpassword . '<br />';
