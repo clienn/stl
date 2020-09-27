@@ -35,7 +35,7 @@ class UserController extends Controller
         $date = $request->query('date') ? $request->query('date') : date('Y-m-d');
 
         $draws = Draw::whereDate('created_at', '=', $date)->get();
-        $daily_draw = DailyDraw::whereDate('created_at', '=', $date)->first();
+        $daily_draw = DailyDraw::whereDate('created_at', '=', $date)->get();
         
         $hits = [
             'd' => ['l2' => [], 's3' => [], 'p3' => []],
