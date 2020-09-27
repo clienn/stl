@@ -19,7 +19,7 @@
                 <select name="draw">
                     <option value="-1">Draw</option>
                     @foreach($draws['hits']['md']['l2'] as $key => $val)
-                        <option value="{{ $val }}" {{ $key == $daily_draw->l2_md_draw ? 'selected' : '' }}>{{ $key }}</option>
+                        <option value="{{ $val }}" {{ count($daily_draw) &&  $key == $daily_draw->l2_md_draw ? 'selected' : '' }}>{{ $key }}</option>
                     @endforeach
                 </select>
             </td>
@@ -38,7 +38,7 @@
                 <select name="draw">
                     <option value="-1">Draw</option>
                     @foreach($draws['hits']['md']['s3'] as $key => $val)
-                        <option value="{{ $val }}" {{ $key == $daily_draw->s3_md_draw ? 'selected' : '' }}>{{ $key }}</option>
+                        <option value="{{ $val }}" {{ count($daily_draw) &&  $key == $daily_draw->s3_md_draw ? 'selected' : '' }}>{{ $key }}</option>
                     @endforeach
                 </select>
             </td>
@@ -57,7 +57,7 @@
                 <select name="draw">
                     <option value="-1">Draw</option>
                     @foreach($draws['hits']['md']['p3'] as $key => $val)
-                        <option value="{{ $val }}" {{ $key == $daily_draw->p3_md_draw ? 'selected' : '' }}>{{ $key }}</option>
+                        <option value="{{ $val }}" {{ count($daily_draw) &&  $key == $daily_draw->p3_md_draw ? 'selected' : '' }}>{{ $key }}</option>
                     @endforeach
                 </select>
             </td>
