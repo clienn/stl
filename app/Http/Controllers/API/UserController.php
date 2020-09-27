@@ -47,13 +47,14 @@ class UserController extends Controller
 
 
         $time = $request->input('time');
-
+        $data = json_encode($request->input('data'));
+        
         if ($time == 'M'){
-            $draw->M = $request->input('data');
+            $draw->M = $data;
         } else if ($time == 'D') {
-            $draw->D = $request->input('data');
+            $draw->D = $data;
         } else {
-            $draw->MD = $request->input('data');
+            $draw->MD = $data;
         }
 
         if ($draw->save()) {
